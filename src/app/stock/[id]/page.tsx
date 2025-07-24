@@ -1,12 +1,13 @@
 'use client'
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, TrendingUp, TrendingDown, BarChart3, DollarSign, Users, Calendar } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const StockDetail = () => {
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id as string | undefined;
 
   // Mock data - in a real app, this would come from an API
   const stockData = {
